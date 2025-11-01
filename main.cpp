@@ -3,11 +3,22 @@
  int ** convert(const int * t, size_t n, const size_t * lns, size_t rows)
 {
   int ** mtx = nullptr;
-  **mtx = new * [rows];
+  mtx = new * [rows];
   for (int i = 0; i < rows; i ++)
   {
     int a = lns[i];
     mtx[i] = new [a];
+  }
+  int b = 0;
+  for (int j = 0; j < rows; ++j)
+  {
+    int k = 0;
+    while (k < lns[j])
+    {
+      mtx[j][k] = t[b];
+      k++;
+      b++;
+    }
   }
 }
 void destroy(int ** mtx, size_t created)
