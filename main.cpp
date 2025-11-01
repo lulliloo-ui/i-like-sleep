@@ -2,11 +2,11 @@
 
 void destroy(int ** mtx, size_t created)
 {
-  for (siz_t i = 0; i < created; i++)
+  for (size_t i = 0; i < created; i++)
   {
     delete[] mtx[i];
   }
-  delete[] mix;
+  delete[] mtx;
 }
 
 int ** create(size_t rows, size_t cols)
@@ -23,7 +23,7 @@ int ** create(size_t rows, size_t cols)
   catch (const std::bad_alloc & e)
   {
     destroy(mtx, created);
-    throw:
+    throw;
   }
   return mtx;
 }
@@ -32,9 +32,9 @@ int main() {
   int ** matrix = nullptr;
   try
   {
-    matrix = create(5, 5)
+    matrix = create(5, 5);
   }
-  catch (const std::bad_alloc & e);
+  catch (const std::bad_alloc & e)
   {
     std::cerr << e.what() << '\n';
 
